@@ -131,7 +131,6 @@ export default function Dashboard() {
   const result = () => console.log('ss');
 
   return (
-    // <Router>
     <div className={classes.root}>
       <Router>
       <Head>
@@ -204,6 +203,5 @@ export default function Dashboard() {
       </main>
       </Router>
     </div>
-  // </Router>
   );
 }
