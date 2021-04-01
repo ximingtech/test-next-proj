@@ -14,11 +14,21 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import { mainListItems, secondaryListItems } from '../components/listItems';
+import { secondaryListItems, MainLstItems2} from '../components/listItems';
 import Head from 'next/head';
-import DashboardPage from './Dashboard';
+import DashboardPage from './module/Dashboard';
+import OrderPage from './module/Order';
+import CustomerPage from './module/Customers';
+import ReportPage from './module/Reports';
+import IntegrationPage from './module/Integrations';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 
-function Copyright() {
+
+const Copyright = () => {
   return (
     <Typography variant="body2" style={{color:'white'}} align="center">
       {'Copyright © '}
@@ -118,9 +128,12 @@ export default function Dashboard() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  const result = () => console.log('ss');
 
   return (
+    // <Router>
     <div className={classes.root}>
+      <Router>
       <Head>
         <title>Fun Test</title>
         <link rel="icon" href="/favicon.ico" />
@@ -160,19 +173,40 @@ export default function Dashboard() {
           </IconButton>
         </div>
         <Divider />
-        <List>{mainListItems}</List>
+        {/* <List>{mainListItems}</List> */}
+        <List>
+          <MainLstItems2 />
+        </List>
         <Divider />
         <List>{secondaryListItems}</List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="xl" className={classes.container}>
-          <DashboardPage />
+          <Switch>
+            <Route exact path="/">
+              <DashboardPage />
+            </Route>
+            <Route path="/order">
+              <OrderPage />
+            </Route>
+            <Route path="/customer">
+              <CustomerPage />
+            </Route>
+            <Route path="/report">
+              <ReportPage />
+            </Route>
+            <Route path="/integration">
+              <IntegrationPage />
+            </Route>
+          </Switch>
           <Box pt={4}>
             <Copyright />
           </Box>
         </Container>
       </main>
+      </Router>
     </div>
+  // </Router>
   );
 }

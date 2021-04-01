@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useState} from 'react';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -9,6 +9,59 @@ import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import DashboardPage from '../pages/module/Dashboard';
+import Testing from '../pages/module/Customers';
+import {
+  Link,
+} from "react-router-dom";
+
+export const MainLstItems2 = () =>{
+  return (
+    <div>
+      <Link to="/">
+      <ListItem button>
+        <ListItemIcon>
+          <DashboardIcon style={{color:'white'}}/>
+        </ListItemIcon>
+        <ListItemText primary="Dashboard" />
+      </ListItem>
+      </Link>
+      <Link to="/order">
+      <ListItem button>
+        <ListItemIcon>
+          <ShoppingCartIcon style={{color:'white'}} />
+        </ListItemIcon>
+        <ListItemText primary="Orders" />
+      </ListItem>
+      </Link>
+      <Link to="/customer">
+      <ListItem button>
+        <ListItemIcon>
+          <PeopleIcon style={{color:'white'}} />
+        </ListItemIcon>
+        <ListItemText primary="Customers" />
+      </ListItem>
+      </Link>
+      <Link to="/report">
+      <ListItem button>
+        <ListItemIcon>
+          <BarChartIcon style={{color:'white'}} />
+        </ListItemIcon>
+        <ListItemText primary="Reports" />
+      </ListItem>
+      </Link>
+      <Link to="/integration">
+      <ListItem button>
+        <ListItemIcon>
+          <LayersIcon style={{color:'white'}} />
+        </ListItemIcon>
+        <ListItemText primary="Integrations" />
+      </ListItem>
+      </Link>
+    </div>
+  )
+
+}
 
 export const mainListItems = (
   <div>
