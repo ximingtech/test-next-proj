@@ -14,7 +14,7 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import { secondaryListItems, MainLstItems2} from '../components/listItems';
+import { secondaryListItems, mainListItems} from '../components/listItems';
 import Head from 'next/head';
 import DashboardPage from './module/Dashboard';
 import OrderPage from './module/Order';
@@ -173,10 +173,7 @@ export default function Dashboard() {
           </IconButton>
         </div>
         <Divider />
-        {/* <List>{mainListItems}</List> */}
-        <List>
-          <MainLstItems2 />
-        </List>
+        <List>{mainListItems}</List>
         <Divider />
         <List>{secondaryListItems}</List>
       </Drawer>
