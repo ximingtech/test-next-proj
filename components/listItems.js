@@ -15,7 +15,7 @@ import {
 
 export const mainListItems = (
   <div>
-    <Link to="/">
+    {/* <Link to="/">
       <ListItem button>
         <ListItemIcon>
           <DashboardIcon style={{color:'white'}}/>
@@ -54,7 +54,7 @@ export const mainListItems = (
         </ListItemIcon>
         <ListItemText primary="Integrations" />
       </ListItem>
-    </Link>
+    </Link> */}
   </div>
 );
 

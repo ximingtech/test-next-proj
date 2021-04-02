@@ -7,7 +7,8 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from '../Title';
-
+import DatePicker from '../DatePicker';
+import CusButton from '../Button';
 // Generate Order Data
 function createData(id, dateCreate, name, totalSpend, balance, status, lastActive) {
   return { id, dateCreate, name, totalSpend, balance, status, lastActive };
@@ -17,7 +18,7 @@ const rows = [
   createData(0, '31 Mar, 2021', 'Elvis Presley', 400.00, 10.00, 'Active', '1 Apr, 2021'),
   createData(1, '24 Dec, 2019', 'Paul McCartney', 600.00, 0.00, 'Inactive', '15 Jul 2020'),
   createData(2, '17 Feb, 2020', 'Tom Scholz', 24000.00, 1823.35, 'Active', '27 Mar 2021'),
-  createData(3, '16 Mar, 2020', 'Michael Jackson', 1000.00, 0.00, 'Inactive', '08 Aug 2020'),
+  createData(3, '16 Mar, 2020', 'Michael Jackson', 1000.00, 0.00, 'Inactive', '8 Aug 2020'),
   createData(4, '15 Aug, 2020', 'Bruce Springsteen', 346.23, 23.77, 'Active', '31 Mar 2021'),
 ];
 
@@ -29,6 +30,10 @@ const useStyles = makeStyles((theme) => ({
   seeMore: {
     marginTop: theme.spacing(3),
   },
+  datePicker: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  }
 }));
 
 export default function Orders() {
@@ -36,6 +41,11 @@ export default function Orders() {
   return (
     <React.Fragment>
       <Title>Customer List</Title>
+      <div className={classes.datePicker}>
+        <DatePicker label="Date from" />
+        <DatePicker label="Date to" />
+        <CusButton name="Search"/>
+      </div>
       <Table size="small">
         <TableHead>
           <TableRow>
@@ -54,8 +64,8 @@ export default function Orders() {
               <TableCell>{row.name}</TableCell>
               <TableCell>{row.totalSpend}</TableCell>
               <TableCell>{row.balance}</TableCell>
-              <TableCell>{row.status}</TableCell>
-              <TableCell align="right">{row.lastActive}</TableCell>
+              <TableCell>{row.lastActive}</TableCell>
+              <TableCell align="right">{row.status}</TableCell>
             </TableRow>
           ))}
         </TableBody>

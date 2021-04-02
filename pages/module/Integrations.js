@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { DatePickers } from '../../components/DatePicker'
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -18,6 +19,7 @@ export default function Integrations(){
 
     return(
         <div>
+          {/* <DatePickers /> */}
           <a style={{color:'white'}}>integration Page</a>
         </div>
     )
