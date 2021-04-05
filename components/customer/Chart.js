@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTheme } from '@material-ui/core/styles';
-import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer, CartesianGrid } from 'recharts';
 import Title from '../Title';
 
 // Generate Registration Data
@@ -39,6 +39,7 @@ export default function Chart() {
             left: 24,
           }}
         >
+          <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="month" stroke={theme.palette.text.secondary}>
           </XAxis>
           <YAxis stroke={theme.palette.text.secondary}>

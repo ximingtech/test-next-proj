@@ -5,7 +5,7 @@ const CusButton = (props) => {
 
     return (
         
-        <Button variant="outlined" size="small" color="primary" >{props.name}</Button>
+        <Button style={{marginRight:'10px'}} variant={props.pattern} size="small" color="primary" >{props.name}</Button>
 
     )
 

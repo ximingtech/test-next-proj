@@ -131,7 +131,7 @@ export default function Dashboard() {
   const result = () => console.log('ss');
 
   return (
-    //<Router>
+    <Router>
     <div className={classes.root}>
       <Head>
         <title>Fun Test</title>
@@ -179,8 +179,10 @@ export default function Dashboard() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="xl" className={classes.container}>
-        <CustomerPage />
-          {/* <Switch>
+        {/* <CustomerPage />
+        <DashboardPage />
+        <OrderPage /> */}
+          <Switch>
             <Route exact path="/">
               <DashboardPage />
             </Route>
@@ -196,13 +198,13 @@ export default function Dashboard() {
             <Route path="/integration">
               <IntegrationPage />
             </Route>
-          </Switch> */}
+          </Switch>
           <Box pt={4}>
             <Copyright />
           </Box>
         </Container>
       </main>
     </div>
-    //</Router>
+    </Router>
   );
 }

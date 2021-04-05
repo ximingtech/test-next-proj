@@ -9,17 +9,19 @@ import TableRow from '@material-ui/core/TableRow';
 import Title from '../Title';
 import DatePicker from '../DatePicker';
 import CusButton from '../Button';
+
+
 // Generate Order Data
-function createData(id, dateCreate, name, totalSpend, balance, status, lastActive) {
-  return { id, dateCreate, name, totalSpend, balance, status, lastActive };
+function createData(id, prodName, curStock, soldStock, lastUpdate) {
+  return { id, prodName, curStock, soldStock, lastUpdate };
 }
 
 const rows = [
-  createData(0, '31 Mar, 2021', 'Elvis Presley', 400.00, 10.00, 'Active', '1 Apr, 2021'),
-  createData(1, '24 Dec, 2019', 'Paul McCartney', 600.00, 0.00, 'Inactive', '15 Jul, 2020'),
-  createData(2, '17 Feb, 2020', 'Tom Scholz', 24000.00, 1823.35, 'Active', '27 Mar, 2021'),
-  createData(3, '16 Mar, 2020', 'Michael Jackson', 1000.00, 0.00, 'Inactive', '8 Aug, 2020'),
-  createData(4, '15 Aug, 2020', 'Bruce Springsteen', 346.23, 23.77, 'Active', '31 Mar, 2021'),
+  createData(0, 'Item 1', '54', '203', '1 Apr, 2021'),
+  createData(1, 'Item 2', '234', '1234', '15 Jul, 2020'),
+  createData(2, 'Item 3', '1023', '112', '27 Mar, 2021'),
+  createData(3, 'Item 4', '20', '89', '8 Aug, 2020'),
+  createData(4, 'Item 5', '6', '397', '31 Mar, 2021'),
 ];
 
 function preventDefault(event) {
@@ -46,8 +48,8 @@ export default function Orders() {
   return (
     <React.Fragment>
       <div className={classes.styleSpaceBetween}>
-        <Title>Customer List</Title>
-        <CusButton pattern="contained" name="Add Customer"/>
+        <Title>Products List</Title>
+        <CusButton pattern="contained" name="Add Product"/>
       </div>
       <div className={classes.datePicker}>
         <DatePicker label="Date from" />
@@ -58,24 +60,20 @@ export default function Orders() {
       <Table size="small">
         <TableHead>
           <TableRow>
-            <TableCell>Date Created</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>Total Spend</TableCell>
-            <TableCell>Balance</TableCell>
-            <TableCell>Status</TableCell>
-            <TableCell>Last Active</TableCell>
+            <TableCell>Product Name</TableCell>
+            <TableCell>Current Stock</TableCell>
+            <TableCell>Sold Stock</TableCell>
+            <TableCell>Last Update</TableCell>
             <TableCell align="right"></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
             <TableRow key={row.id}>
-              <TableCell>{row.dateCreate}</TableCell>
-              <TableCell>{row.name}</TableCell>
-              <TableCell>{row.totalSpend}</TableCell>
-              <TableCell>{row.balance}</TableCell>
-              <TableCell>{row.lastActive}</TableCell>
-              <TableCell>{row.status}</TableCell>
+              <TableCell>{row.prodName}</TableCell>
+              <TableCell>{row.curStock}</TableCell>
+              <TableCell>{row.soldStock}</TableCell>
+              <TableCell>{row.lastUpdate}</TableCell>
               <TableCell align="right"><CusButton name='edit' /></TableCell>
             </TableRow>
           ))}
@@ -83,7 +81,7 @@ export default function Orders() {
       </Table>
       <div className={classes.seeMore}>
         <Link color="primary" href="#" onClick={preventDefault}>
-          See more customers
+          See more products
         </Link>
       </div>
     </React.Fragment>

@@ -7,7 +7,8 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Title from '../Title';
-
+import DatePicker from '../DatePicker';
+import CusButton from '../Button';
 // Generate Order Data
 function createData(id, date, name, shipTo, paymentMethod, amount) {
   return { id, date, name, shipTo, paymentMethod, amount };
@@ -29,6 +30,10 @@ const useStyles = makeStyles((theme) => ({
   seeMore: {
     marginTop: theme.spacing(3),
   },
+  datePicker: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  }
 }));
 
 export default function Orders() {
@@ -36,6 +41,12 @@ export default function Orders() {
   return (
     <React.Fragment>
       <Title>Recent Orders</Title>
+      <div className={classes.datePicker}>
+        <DatePicker label="Date from" />
+        <DatePicker label="Date to" />
+        <CusButton name="Search" pattern="outlined"/>
+        <CusButton name="Export" pattern="outlined"/>
+      </div>
       <Table size="small">
         <TableHead>
           <TableRow>
