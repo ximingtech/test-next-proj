@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: 'column',
       },
     fixedHeight: {
-        height: 240,
+        height: 680,
       },
   }));
 
@@ -31,7 +31,7 @@ export default function Order(){
                 </Grid>
                 {/* Chart */}
                 <Grid item xs={12}>
-                  <Paper className={classes.paper}>
+                  <Paper className={fixedHeightPaper}>
                       <ProductsChart />
                   </Paper>
                 </Grid>

@@ -111,7 +111,7 @@ export default function Chart() {
         <DatePicker label="Date to" />
         <CusButton name="Search" pattern="outlined"/>
       </div>
-      <ResponsiveContainer width='100%' height='100%'>
+      <ResponsiveContainer width={1500} height={500}>
       <BarChart
       data={data}
       margin={{

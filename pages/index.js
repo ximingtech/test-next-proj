@@ -173,8 +173,8 @@ export default function Dashboard() {
         </div>
         <Divider />
         <List>{mainListItems}</List>
-        <Divider />
-        <List>{secondaryListItems}</List>
+        {/* <Divider />
+        <List>{secondaryListItems}</List> */}
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
@@ -195,9 +195,9 @@ export default function Dashboard() {
             <Route path="/report">
               <ReportPage />
             </Route>
-            <Route path="/integration">
+            {/* <Route path="/integration">
               <IntegrationPage />
-            </Route>
+            </Route> */}
           </Switch>
           <Box pt={4}>
             <Copyright />

@@ -48,12 +48,12 @@ export const mainListItems = (
       </ListItem>
       </Link>
       <Link to="/integration">
-      <ListItem button>
+      {/* <ListItem button>
         <ListItemIcon>
           <LayersIcon style={{color:'white'}} />
         </ListItemIcon>
         <ListItemText primary="Integrations" />
-      </ListItem>
+      </ListItem> */}
     </Link>
   </div>
 );
