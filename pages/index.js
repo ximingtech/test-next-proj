@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -14,19 +14,18 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
-import { secondaryListItems, mainListItems} from '../components/listItems';
 import Head from 'next/head';
 import DashboardPage from './module/Dashboard';
 import OrderPage from './module/Order';
 import CustomerPage from './module/Customers';
 import ReportPage from './module/Reports';
-import IntegrationPage from './module/Integrations';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
-
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import PeopleIcon from '@material-ui/icons/People';
+import BarChartIcon from '@material-ui/icons/BarChart';
 
 const Copyright = () => {
   return (
@@ -121,7 +120,8 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Dashboard() {
   const classes = useStyles();
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = useState(true);
+  const [page, setPage] = useState(0);
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -131,7 +131,6 @@ export default function Dashboard() {
   const result = () => console.log('ss');
 
   return (
-    <Router>
     <div className={classes.root}>
       <Head>
         <title>Admin Dashboard</title>
@@ -160,11 +159,6 @@ export default function Dashboard() {
           <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
             Dashboard
           </Typography>
-          {/* <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton> */}
         </Toolbar>
       </AppBar>
       <Drawer
@@ -180,39 +174,37 @@ export default function Dashboard() {
           </IconButton>
         </div>
         <Divider />
-        <List>{mainListItems}</List>
-        {/* <Divider />
-        <List>{secondaryListItems}</List> */}
+      <List>
+        {['Dashboard', 'Orders', 'Customers', 'Reports'].map((text, index) => (
+            <ListItem button key={text} onClick={e => setPage(index)}>
+                <ListItemIcon>
+                    {
+                        index === 0 ? <DashboardIcon style={{color:'white'}}/> : 
+                        index === 1 ? <ShoppingCartIcon style={{color:'white'}} /> : 
+                        index === 2 ? <PeopleIcon style={{color:'white'}} /> :
+                        <BarChartIcon style={{color:'white'}} />
+                    }
+                </ListItemIcon>
+                <ListItemText primary={text} />
+            </ListItem>
+        ))}
+      </List>
+
       </Drawer>
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="xl" className={classes.container}>
-        {/* <CustomerPage />
-        <DashboardPage />
-        <OrderPage /> */}
-          <Switch>
-            <Route exact path="/">
-              <DashboardPage />
-            </Route>
-            <Route path="/order">
-              <OrderPage />
-            </Route>
-            <Route path="/customer">
-              <CustomerPage />
-            </Route>
-            <Route path="/report">
-              <ReportPage />
-            </Route>
-            {/* <Route path="/integration">
-              <IntegrationPage />
-            </Route> */}
-          </Switch>
+          {
+            page === 0 ? <DashboardPage /> :
+            page === 1 ? <OrderPage /> :
+            page === 2 ? <CustomerPage /> :
+            <ReportPage />
+          }
           <Box pt={4}>
             <Copyright />
           </Box>
         </Container>
       </main>
     </div>
-    </Router>
   );
 }
