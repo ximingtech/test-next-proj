@@ -134,8 +134,16 @@ export default function Dashboard() {
     <Router>
     <div className={classes.root}>
       <Head>
-        <title>Fun Test</title>
+        <title>Admin Dashboard</title>
+        <meta charset="utf-8" />
         <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <meta
+          name="description"
+          content="Just a simple draft admin dashboard"
+        />
+        <meta property="og:image" content="%PUBLIC_URL%/vercel.svg" />
       </Head>
       <CssBaseline />
       <AppBar position="absolute" color='inherit' className={clsx(classes.appBar, open && classes.appBarShift)}>

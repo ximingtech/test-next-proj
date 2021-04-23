@@ -47,14 +47,14 @@ export const mainListItems = (
         <ListItemText primary="Reports" />
       </ListItem>
       </Link>
-      <Link to="/integration">
-      {/* <ListItem button>
+      {/* <Link to="/integration">
+      <ListItem button>
         <ListItemIcon>
           <LayersIcon style={{color:'white'}} />
         </ListItemIcon>
         <ListItemText primary="Integrations" />
-      </ListItem> */}
-    </Link>
+      </ListItem>
+    </Link> */}
   </div>
 );
 
